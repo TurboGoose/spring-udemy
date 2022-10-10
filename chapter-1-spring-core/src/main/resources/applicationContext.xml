@@ -9,7 +9,7 @@
 
 	<context:property-placeholder location="sport.properties"/>
 
-	<bean id="myFortuneService"
+	<bean id="fortuneService"
 		class="ioc.fortuneservices.HappyFortuneService"/>
 
 	<bean id="randFortuneService"
@@ -17,7 +17,7 @@
 
 	<bean id="tCoach"
 		class="ioc.coaches.TrackCoach">
-		<constructor-arg ref="myFortuneService"/>
+		<constructor-arg ref="fortuneService"/>
 	</bean>
 
 	<bean id="cCoach"
