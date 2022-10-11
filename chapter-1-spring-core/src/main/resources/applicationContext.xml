@@ -7,28 +7,6 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:property-placeholder location="sport.properties"/>
+	<context:component-scan base-package="ioc"/>
 
-	<bean id="fortuneService"
-		class="ioc.fortuneservices.HappyFortuneService"/>
-
-	<bean id="randFortuneService"
-		  class="ioc.fortuneservices.RandomFortuneService"/>
-
-	<bean id="tCoach"
-		class="ioc.coaches.TrackCoach">
-		<constructor-arg ref="fortuneService"/>
-	</bean>
-
-	<bean id="cCoach"
-		  class="ioc.coaches.CricketCoach">
-		<property name="fortuneService" ref="randFortuneService"/>
-		<property name="emailAddress" value="${sport.email}"/>
-		<property name="team" value="${sport.team}"/>
-	</bean>
 </beans>
-
-
-
-
-

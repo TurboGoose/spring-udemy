@@ -6,8 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class App {
     public static void main(String[] args) {
         try (ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("beanLifecycleApplicationContext.xml")) {
-            Coach coach = context.getBean("lifecycleCoach", Coach.class);
+                new ClassPathXmlApplicationContext("applicationContext.xml")) {
+            Coach coach = context.getBean("boxCoach", Coach.class);
             System.out.println(coach.getDailyWorkout());
         }
     }
