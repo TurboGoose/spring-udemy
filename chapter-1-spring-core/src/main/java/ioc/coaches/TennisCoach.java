@@ -12,7 +12,7 @@ public class TennisCoach implements Coach {
     @Value("${email}")
     private String email;
 
-    public TennisCoach(@Qualifier("fortuneServiceImpl1") FortuneService fortuneService) {
+    public TennisCoach(@Qualifier("randomFortuneService") FortuneService fortuneService) {
         System.out.println("Inside constructor : " + fortuneService);
         this.fortuneService = fortuneService;
     }
