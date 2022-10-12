@@ -3,11 +3,14 @@ package ioc.coaches;
 import ioc.fortune.FortuneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TennisCoach implements Coach {
     private FortuneService fortuneService;
+    @Value("${email}")
+    private String email;
 
     public TennisCoach(@Qualifier("fortuneServiceImpl1") FortuneService fortuneService) {
         System.out.println("Inside constructor : " + fortuneService);
@@ -27,5 +30,9 @@ public class TennisCoach implements Coach {
     @Override
     public String getDailyFortune() {
         return fortuneService.getFortune();
+    }
+
+    public String getEmail() {
+        return email;
     }
 }
