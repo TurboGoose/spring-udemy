@@ -4,9 +4,14 @@ import ioc.fortune.FortuneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component
+//@Scope("prototype")
 public class TennisCoach implements Coach {
     private FortuneService fortuneService;
     @Value("${email}")
@@ -17,9 +22,14 @@ public class TennisCoach implements Coach {
         this.fortuneService = fortuneService;
     }
 
-    @Autowired
-    public void checkMethodInjectionWithQualifier(@Qualifier("fortuneServiceImpl2") FortuneService fortuneService) {
-        System.out.println("Inside checkMethodInjectionWithQualifier : " + fortuneService);
+    @PostConstruct
+    public void setUp() {
+        System.out.println("@PostConstruct");
+    }
+
+    @PreDestroy
+    public void tearDown() {
+        System.out.println("@PreDestroy");
     }
 
     @Override
