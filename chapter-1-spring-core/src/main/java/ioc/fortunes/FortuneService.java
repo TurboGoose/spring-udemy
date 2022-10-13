@@ -1,4 +1,4 @@
-package ioc.fortune;
+package ioc.fortunes;
 
 public interface FortuneService {
     String getFortune();

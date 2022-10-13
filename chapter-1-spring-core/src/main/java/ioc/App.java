@@ -1,14 +1,15 @@
 package ioc;
 
-import ioc.coaches.Coach;
 import ioc.coaches.TennisCoach;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import ioc.configs.SportConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class App {
     public static void main(String[] args) {
-        try (ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml")) {
+        try (AnnotationConfigApplicationContext context =
+                new AnnotationConfigApplicationContext(SportConfig.class)) {
             TennisCoach coach = context.getBean("tennisCoach", TennisCoach.class);
+            System.out.println(coach.getDailyWorkout());
             System.out.println(coach.getDailyFortune());
         }
     }
