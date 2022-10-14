@@ -9,8 +9,7 @@ public class App {
         try (AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(SportConfig.class)) {
             TennisCoach coach = context.getBean("tennisCoach", TennisCoach.class);
-            System.out.println(coach.getDailyWorkout());
-            System.out.println(coach.getDailyFortune());
+            System.out.println(coach.getEmail());
         }
     }
 }

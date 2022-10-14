@@ -6,8 +6,10 @@ import ioc.fortunes.FortuneService;
 import ioc.fortunes.FortuneServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:coach.properties")
 public class SportConfig {
     @Bean
     public FortuneService fortuneService() {
