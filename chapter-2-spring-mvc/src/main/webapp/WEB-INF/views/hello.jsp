@@ -11,6 +11,6 @@
     <title>Hello there!</title>
 </head>
 <body>
-    Hello, ${param.name}
+    ${greeting}
 </body>
 </html>
